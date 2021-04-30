@@ -50,8 +50,10 @@ function App() {
      )
      :
      <>
+     <Switch>
      <Route exact path="/" component={LoginDemo} />
      <Route  component={LoginDemo} />
+     </Switch>
      </>
    }
     </>
