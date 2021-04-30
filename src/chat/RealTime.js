@@ -22,7 +22,7 @@ export default function RealTime({messages}) {
         return unsubscribe;
     },[]);
     return (
-        <div>
+        <div className="realtime" style={{width:"100%", height:"120vh",background:""}}>
             {user ? (
                 <>
                 <Channel user = {user} db = {db} name={messages}/>

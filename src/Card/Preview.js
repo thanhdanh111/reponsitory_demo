@@ -1,47 +1,39 @@
 import styled from 'styled-components'
 
-export const Layout = styled.div`\
-    margin-top: -20px;
-    height: 200px;
-    width: 381px;
-    display: flex;
-    place-items: center;
-    justify-content:center;
-    align-item:center;
-    background: red;
-`
+
 
 export const Container = styled.div`
-    margin-left: 40%;
-    width: 350px;
+position: relative;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 36px 48px;
     border-radius: 20px;
     text-align: center;
     place-items: center;
-    height: 350px;
+    height: 200px;
+    top: 0px;
     p {
-        margin-top: -10px;
+        
         color: #777;
     }
 `
 
 export const BoxUpload = styled.div`
+    position: absolute;
+    top:-50px;
     text-align: center;
-    display: grid;
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     place-items: center;
     border: 1px dashed #799CD9;
     height: 180px;
     width: 180px;
     background: #FBFBFF;
     border-radius: 50%;
-
     .image-upload {
         display: flex;
         flex-wrap:wrap;
-
         label {
             cursor: pointer;
         

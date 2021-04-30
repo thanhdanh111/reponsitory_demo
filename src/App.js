@@ -12,8 +12,6 @@ import Navbar from "./components/Navbar";
 import CreateCard from './pages/CreateCard'
 import RoomAccept from './pages/RoomAccept'
 function App() {
-
-    
     const [user , setUser] = useState(auth)
     const [initializing , setInitializing] = useState(true)
     useEffect(() => {
@@ -45,7 +43,7 @@ function App() {
         <Route exact path="/rooms/:slug" component={SingleRoom} />
         <Route exact path="/rooms/:slug/create-card" children={<CreateCard user={user} db={db} />} />
         <Route exact path="/rooms/:slug/:nameProcard" children={<RoomAccept user={user} db={db} />} />
-        <Route component={Error} />
+        <Route component={Home} />
       </Switch>
     </>
        </>

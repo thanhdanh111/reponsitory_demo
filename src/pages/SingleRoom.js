@@ -8,6 +8,7 @@ import RealTime from "../chat/RealTime";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Map from "../Map/Map";
+import RubberBand from 'react-reveal/RubberBand';
 export default class SingleRoom extends Component {
   constructor(props) {
     super(props);
@@ -99,18 +100,13 @@ export default class SingleRoom extends Component {
             ))}
           </ul>
         </section>
-        <div className="feature" style={{display:"flex"}}>
-              <div className="feature-container">
-              
-              <Map latitude={lng}  lngitude={lat} />
-              </div>
-              <div className="feature-container">
+              <RubberBand>
               <RealTime  messages={messages}  />
+              </RubberBand>
+              <Map latitude={lng} lngitude={lat} />
+              <div className="single-btn">
+              <a class="btn-primary" href={`/rooms/${slug}/create-card`}>ACCEPT HIRE</a>
               </div>
-        </div>
-        <div className="featureforbutton">
-            <a class="btn-primary" href={`/rooms/${slug}/create-card`}>Accept to hire</a>
-        </div>
         <Footer />
       </>
     );

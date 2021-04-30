@@ -3,21 +3,15 @@ import PropTypes  from 'prop-types'
 import firebase from 'firebase/app';
 import Message from './Messages'
 import './Chanel.css'
+import ScrollableFeed from 'react-scrollable-feed'
 const Channel = ({ user = null,db = null,name}) => {
+  const dummy = useRef();
     const [messages, setMessages] = useState([]);    
+    console.log("a",messages.length);
     const [newMessage, setNewMessage] = useState([]); 
     const [submitKey, setSubmitKey] = useState(10); 
     const { uid, displayName, photoURL } = user;
-    const messageEl = useRef(null);
-    const bottomListRef = useRef();
-    useEffect(() => {
-      if (messageEl) {
-        messageEl.current.addEventListener('DOMNodeInserted', event => {
-          const { currentTarget: target } = event;
-          target.scroll({ top: target.scrollHeight, behavior: 'smooth' });
-        });
-      }
-    }, [])
+   
     useEffect(() =>{
         if(db){
             const unsubscribe = db.collection(name).orderBy('createdAt').limit(100).onSnapshot(
@@ -46,39 +40,38 @@ const Channel = ({ user = null,db = null,name}) => {
           })
           setNewMessage('');
         }
+        
     }
     return (
-      
-          <div className="chat">
-            <div className="head">ChatBox</div>
-              <div className="messages" ref={messageEl}>
+      <div className = "channel">
+        <header className="chanel-header">
+          <h1 className="header-h1">RoomChat</h1>
+        </header>
+      <section className="channel-section">
+      <main className="channel-main">
+            <ScrollableFeed >
                 {messages.map(message => (
-                  <li key={message.id}><Message {...message}/></li>
+                  <li style={{listStyle:"none"}} key={message.id}><Message {...message}/></li>
                 ))}
-              </div>
-              <div className="footer">
-              <form
-                onSubmit={handleOnSubmit}
-                style={{background:"#af9a7d"}}
-                  >
-              <input
-                
-                type="text"
-                value={newMessage}
-                onChange={handleOnChange}
-                placeholder="Type your message here..."
-                className="flex-1 bg-transparent outline-none"
-              />
-              <button
-                type="submit"
-                disabled={!newMessage}
-              >
-                Send
-              </button>
-                </form>
-            </div>
-          </div>
-      
+              </ScrollableFeed>   
+                 
+      </main>
+              <form className ="form-chat-submit" onSubmit={handleOnSubmit} >
+                <input
+                  type="text"
+                  value={newMessage}
+                  onChange={handleOnChange}
+                  placeholder="Type your message here..."
+                />
+                <button
+                  type="submit"
+                  disabled={!newMessage}
+                >
+                  Send
+                </button>
+              </form>
+        </section>
+      </div>
     );
 
 };
