@@ -8,6 +8,7 @@ import Footer from '../components/Footer'
 export default function CreateCard({user , db}) {
     const getPath  =  useParams()
     const slug = getPath.slug;
+    console.log("sluf=g",slug);
     const {getRoom} = useContext(RoomContext)
     const room  = getRoom(slug)
     console.log(room);

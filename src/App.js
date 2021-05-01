@@ -10,7 +10,11 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import CreateCard from './pages/CreateCard'
 import RoomAccept from './pages/RoomAccept'
+import { useLocation } from 'react-router-dom'
 function App() {
+  const getPath  =  useLocation()
+  const slug = getPath.slug;
+  console.log(slug);
     const [user , setUser] = useState(auth)
     const [initializing , setInitializing] = useState(true)
     useEffect(() => {
