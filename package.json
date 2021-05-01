@@ -1,5 +1,5 @@
 {
-  "homepage": "http://thanhdanh111.github.io/demo-deploy",
+  "homepage": "http://thanhdanh111.github.io/reponsitory_demo",
   "name": "smart",
   "version": "0.1.0",
   "private": true,
@@ -19,6 +19,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-scrollable-feed": "^1.3.0",
+    "styled-components": "^5.2.3",
     "web-vitals": "^1.1.0"
   },
   "scripts": {

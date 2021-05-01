@@ -9,10 +9,10 @@ import { storage } from '../chat/firebase'
 import Card from '../Card/Card'
 import { set } from 'date-fns';
 import { Link } from 'react-router-dom';
-
-export default function Form({user = null , db = null, nameProcard, slug}) {
-    console.log("dasdsa",nameProcard);
-    const { uid, displayName, photoURL } = user;
+import {auth , db} from '../chat/firebase'
+export default function Form({ nameProcard, slug}) {
+    const [user , setUser] = useState(() => auth.currentUser)
+   
     //images
     const [images , setImages] = useState(null)
     const [image, setImage] = useState("");
@@ -131,10 +131,7 @@ export default function Form({user = null , db = null, nameProcard, slug}) {
                     email: email,
                     gender: gender,
                     url: url,
-                    favorite: favorite,              
-                    uid,
-                    displayName,
-                    photoURL
+                    favorite: favorite,       
                 })
         }
         setNewMessage('');

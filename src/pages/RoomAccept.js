@@ -4,7 +4,9 @@ import { useParams } from 'react-router-dom'
 import ListCard from '../Form/ListCard'
 import './RoomsAccept.css'
 import Footer from '../components/Footer';
-export default function RoomAccept({user=null, db= null}) {
+import {auth , db} from '../chat/firebase'
+export default function RoomAccept() {
+  const [user , setUser] = useState(() => auth.currentUser)
   const getPath  =  useParams()
   const proCardName = getPath.nameProcard;
   console.log(proCardName);

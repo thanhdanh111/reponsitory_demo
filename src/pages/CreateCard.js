@@ -19,7 +19,7 @@ export default function CreateCard({user , db}) {
     return (
         <div>
             <Navbar />
-            <Form  user={user} db={db} nameProcard={nameProcard} slug={slug} />
+            <Form   nameProcard={nameProcard} slug={slug} />
             <Footer />
         </div>
     )

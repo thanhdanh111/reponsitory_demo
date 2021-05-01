@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import react , {useState, useEffect} from 'react'
 import {auth,db} from './chat/firebase'
 import LoginDemo from './Logindemo/LoginDemo';
@@ -6,7 +6,6 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Rooms from "./pages/Rooms";
 import SingleRoom from "./pages/SingleRoom";
-import Error from "./pages/Error";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import CreateCard from './pages/CreateCard'
@@ -29,7 +28,6 @@ function App() {
       })
       return unsubscribe;
   },[]);
-    console.log("sa",user);
   return (
     <>
    {
@@ -41,20 +39,18 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/rooms/" component={Rooms} />
         <Route exact path="/rooms/:slug" component={SingleRoom} />
-        <Route exact path="/rooms/:slug/create-card" children={<CreateCard user={user} db={db} />} />
-        <Route exact path="/rooms/:slug/:nameProcard" children={<RoomAccept user={user} db={db} />} />
+        <Route exact path="/rooms/:slug/create-card" component={CreateCard} />
+        <Route exact path="/rooms/:slug/:nameProcard" component={RoomAccept} />
         <Route component={Home} />
       </Switch>
     </>
        </>
      )
      :
-     <>
      <Switch>
-     <Route exact path="/" component={LoginDemo} />
-     <Route  component={LoginDemo} />
+          <Route exact path="/" component={LoginDemo} />
+          <Route  component={LoginDemo} />
      </Switch>
-     </>
    }
     </>
   );
