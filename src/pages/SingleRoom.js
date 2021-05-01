@@ -21,11 +21,11 @@ export default class SingleRoom extends Component {
   static contextType = RoomContext;
 
   render() {
-    console.log("danh:",this.state.slug);
+ 
     const { getRoom } = this.context;
-    console.log("adsa",getRoom);
+  
     const room = getRoom(this.state.slug);
-    console.log("roominside:", room);
+   
     if (!room) {
       return (
         <div className="error">
@@ -57,7 +57,7 @@ export default class SingleRoom extends Component {
       lng
     } = room;
     const [main, ...defaultImages] = images;
-    console.log("aa", lat);
+    console.log("dasdsa");
     return (
       <>
       <Navbar />  
@@ -108,6 +108,7 @@ export default class SingleRoom extends Component {
               <a class="btn-primary" href={`/rooms/${slug}/create-card`}>ACCEPT HIRE</a>
               </div>
         <Footer />
+        
       </>
     );
   }
