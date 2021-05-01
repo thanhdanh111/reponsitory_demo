@@ -14,7 +14,7 @@ import { useLocation } from 'react-router-dom'
 function App() {
   const getPath  =  useLocation()
   const slug = getPath.slug;
-  console.log(slug);
+  console.log("hasa",slug);
     const [user , setUser] = useState(auth)
     const [initializing , setInitializing] = useState(true)
     useEffect(() => {
